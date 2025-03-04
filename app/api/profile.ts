@@ -28,11 +28,16 @@ export function determinePlayerProfile(stats: PlayerStats) {
   const roles: string[] = [];
   if (normalizedOpening > 0.05 && normalizedAim > 0.6)
     roles.push("Entry Fragger");
+
   if (normalizedUtility > 0.6 && normalizedPositioning > 0.4)
     roles.push("Support");
+
   if (normalizedAim > 0.7 && normalizedPositioning > 0.5) roles.push("Rifler");
+
   if (normalizedClutch > 0.15) roles.push("Clutch Player");
+
   if (normalizedPositioning > 0.7 && normalizedAim < 0.5) roles.push("Lurker");
+
   if (normalizedAim > 0.8 && normalizedOpening > 0.03) roles.push("AWPer");
 
   if (roles.length === 0) roles.push("Flexible"); // If no strong category fits

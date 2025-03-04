@@ -32,7 +32,9 @@ export default function Page() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ players: textAreaValue.split("\n") }),
+      body: JSON.stringify({
+        players: textAreaValue.replace(",", "").trim().split("\n"),
+      }),
     })
       .then((res) => res.json())
       .then((data) => {

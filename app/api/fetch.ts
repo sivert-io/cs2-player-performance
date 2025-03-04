@@ -9,8 +9,12 @@ export async function getSteamIDFromURL(url: string) {
   var steam = "";
   if (url.includes("steamcommunity.com/id/")) {
     steam = await steamIdResolver.customUrlToSteamID64(url);
-  } else {
+  } else if (url.includes("steamcommunity.com/profiles/")) {
     steam = url.split("/profiles/")[1];
+  } else if (!isNaN(Number(url)) && url.length === 17) {
+    steam = url;
+  } else {
+    steam = await steamIdResolver.customUrlToSteamID64(url);
   }
 
   return steam;
