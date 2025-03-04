@@ -16,7 +16,7 @@ function StringToNumberRounded(value: string) {
   return Math.round(Number(value));
 }
 
-export default function page() {
+export default function Page() {
   const [textAreaValue, setTextAreaValue] = useState(
     "https://steamcommunity.com/id/Cloudsleep/"
   );
@@ -100,6 +100,7 @@ export default function page() {
               <a
                 className="active:scale-95 transition duration-75"
                 target="_blank"
+                rel="noreferrer"
                 href={`https://steamcommunity.com/profiles/${player.stats.meta.steam64Id}`}
                 key={index}
               >
