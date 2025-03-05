@@ -1,6 +1,9 @@
 import "@/styles/globals.css";
 import clsx from "clsx";
+import { Toaster } from "react-hot-toast";
+
 import { Providers } from "./providers";
+
 import { fontSans } from "@/config/fonts";
 
 export default function RootLayout({
@@ -18,6 +21,7 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+          <Toaster position="bottom-left" />
           {children}
         </Providers>
       </body>

@@ -26,6 +26,7 @@ export function determinePlayerProfile(stats: PlayerStats) {
 
   // Determine primary role(s) based on highest stats
   const roles: string[] = [];
+
   if (normalizedOpening > 0.05 && normalizedAim > 0.6)
     roles.push("Entry Fragger");
 
@@ -54,11 +55,12 @@ export function determinePlayerProfile(stats: PlayerStats) {
 export function createBalancedTeams(players: Player[], teamSize = 5): Team[] {
   // Copy and sort players by totalScore (descending order)
   const sortedPlayers = [...players].sort(
-    (a, b) => b.totalScore - a.totalScore
+    (a, b) => b.profile.totalScore - a.profile.totalScore
   );
 
   // Determine the number of complete teams
   const numTeams = Math.floor(sortedPlayers.length / teamSize);
+
   if (numTeams < 1) {
     throw new Error("Not enough players to form a full team.");
   }
@@ -77,7 +79,7 @@ export function createBalancedTeams(players: Player[], teamSize = 5): Team[] {
     // Find the team with the **lowest total score** and assign the player there
     teams.sort((a, b) => a.totalScore - b.totalScore);
     teams[0].players.push(player);
-    teams[0].totalScore += player.totalScore;
+    teams[0].totalScore += player.profile.totalScore;
   }
 
   return teams;
@@ -85,7 +87,11 @@ export function createBalancedTeams(players: Player[], teamSize = 5): Team[] {
 
 export function getCurrentRating(player: Player) {
   // go through each game until we find a game with a skill level and return it
-  for (const game of player.stats.games) {
-    if (game.skillLevel && game.rankType === 11) return game.skillLevel;
+  if (player.stats)
+    for (const game of player.stats.games) {
+      if (game.skillLevel && game.rankType === 11) return game.skillLevel;
+    }
+  else {
+    return 0;
   }
 }

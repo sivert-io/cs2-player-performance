@@ -58,12 +58,17 @@ export type PlayerProfile = {
   platformBans: string[]; // Assuming an array of strings; adjust type if needed
 };
 
+export type Stats = {
+  recentGameRatings: PlayerStats;
+  meta: PlayerProfile;
+  games: Game[];
+};
+
 export interface Player {
-  stats: {
-    recentGameRatings: PlayerStats;
-    meta: PlayerProfile;
-    games: Game[];
+  stats?: Stats;
+  profile: {
+    totalScore: number;
+    roles: string[];
   };
-  totalScore: number;
-  roles: string[];
+  steam: any;
 }
