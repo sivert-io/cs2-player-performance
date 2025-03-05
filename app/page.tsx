@@ -61,7 +61,7 @@ export default function Page() {
 
   return (
     <main className="fixed overflow-auto inset-0 flex flex-col gap-12 items-center justify-start p-12">
-      <div className="grid grid-cols-2 gap-12 w-full">
+      <div className="grid grid-cols-2 gap-12 w-full max-w-[1200px]">
         {teams
           .sort((a, b) => b.totalScore - a.totalScore)
           .map((team, i) => {
