@@ -1,53 +1,89 @@
-# Next.js & HeroUI Template
+# Leetify Team Balancer 🎯  
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+Leetify Team Balancer is a web application that calculates player performance using Leetify stats and forms balanced teams. It contacts the Leetify API with a 1-second delay per player, generates a profile for each one, and assigns a total score. This score is then used to create fair and balanced teams using a snake-draft algorithm. 🐍  
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+## Table of Contents 📖  
 
-## Technologies Used
+- [Features ✨](#features-)  
+- [Getting Started 🚀](#getting-started-)  
+- [Configuration ⚙️](#configuration-)  
+- [Development 🏗️](#development-)  
+- [Contributing 🤝](#contributing-)  
+- [Thanks 🙌](#thanks-)  
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+## Features ✨  
 
-## How to Use
+- 📊 Fetches player performance stats from Leetify  
+- ⏳ Ensures a 1-second delay per API request to prevent rate-limiting  
+- 🎯 Generates a player profile with a total score  
+- 🐍 Uses a snake-draft method to create balanced teams  
+- ⚡ Built with Next.js for fast and modern web performance  
 
-### Use the template with create-next-app
+## Getting Started 🚀  
 
-To create a new project based on this template using `create-next-app`, run the following command:
+To run the project locally, follow these steps:  
 
-```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
-```
+1. **Clone the repository**  
 
-### Install dependencies
+```sh  
+git clone https://github.com/yourusername/leetify-team-balancer.git  
+cd leetify-team-balancer  
+```  
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+2. **Install dependencies**  
 
-```bash
-npm install
-```
+```sh  
+npm install  
+```  
 
-### Run the development server
+3. **Create a .env file** and add your Leetify API key:  
 
-```bash
-npm run dev
-```
+```ini  
+LEETIFY_API_KEY="your_api_key_here"  
+```  
 
-### Setup pnpm (optional)
+4. **Start the development server** 
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+```sh  
+npm run dev  
+```  
 
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
+The app will be available at `http://localhost:3000` 🎉  
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+## Configuration ⚙️  
 
-## License
+To connect with the Leetify API, ensure you have a valid API key stored in a `.env` file. The app contacts the API with a delay of 1 second per request to avoid rate limits.  
 
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
+## Development 🏗️  
+
+For local development and contributions:  
+
+1. **Run the development server**  
+
+```sh  
+npm run dev  
+```  
+
+2. **Build the production version**  
+
+```sh  
+npm run build  
+```  
+
+3. **Start the production server**  
+
+```sh  
+npm start  
+```  
+
+## Contributing 🤝  
+
+We welcome contributions! If you find a bug or want to improve the app, feel free to open an issue or submit a pull request. 🚀  
+
+## Thanks 🙌  
+
+A special thanks to:  
+- 🏆 [Leetify](https://leetify.com/) for providing detailed CS stats  
+- 🛠️ The open-source community for their support and contributions  
+
+Happy team balancing! ⚡

@@ -1,5 +1,9 @@
 {
-  "name": "next-app-template",
+  "name": "leetify-team-balancer",
+  "author": {
+    "name": "Sivert Gullberg Hansen",
+    "email": "contact@sivert.io"
+  },
   "version": "0.0.1",
   "private": true,
   "scripts": {
