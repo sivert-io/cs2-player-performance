@@ -17,6 +17,8 @@ export async function POST(req: Request) {
   // Use an array to store player data
   const playerData = await Promise.all(
     steam.response.players.map(async (steamProfile: any) => {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
       const stats: Stats | undefined = await fetchPlayerStats(
         steamProfile.steamid
       );
